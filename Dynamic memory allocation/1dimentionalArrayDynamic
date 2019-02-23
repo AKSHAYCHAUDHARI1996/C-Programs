@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void OneDimentional()
+{
+	int *p;
+	int col, i;
+
+	printf("enter number of elements\n");
+	scanf("%d", &col);
+
+	p = (int*)malloc(sizeof(int)* col);
+
+	printf("enter the elements \n");
+	for (i = 0;i < col;i++)
+	{
+		scanf("%d", &p[i]);	
+	}
+
+	printf("elements in 1D array are \n");
+	for (i = 0;i < col;i++)
+	{
+		printf("%d\t", p[i]);
+	}
+
+	printf(" \nfreeing the allocated memory");
+	free (p);
+}
+
+int main()
+{
+OneDimentional();
+return 0;
+}
