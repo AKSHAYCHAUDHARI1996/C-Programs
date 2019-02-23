@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void ThreeDimentional()
+{
+	int ***p;
+	int first, second,third, i, j,k;
+
+	printf("enter first second third dimentions\n");
+	scanf("%d %d %d", &first, &second,&third);
+
+	p = (int***)malloc(sizeof(int**)* first);
+	
+	for (i = 0;i < first; i++)
+	{
+		p[i] = (int**)malloc(sizeof(int*)*second);
+
+		for (j = 0;j < second;j++)
+		{
+			p[i][j] = (int*)malloc(sizeof(int*)*third);
+		}
+	}
+
+	printf("enter the elements in array \n");
+	for (i = 0;i < first;i++)
+	{
+		for (j = 0;j < second;j++)
+		{
+			for (k = 0;k < third;k++)
+			{
+				scanf("%d", &p[i][j][k]);
+			}
+		}
+	}
+
+	printf("elements in 3D array are \n");
+	for (i = 0;i < first;i++)
+	{
+		for (j = 0;j < second;j++)
+		{
+			for (k = 0;k < third;k++)
+			{
+				printf("%d \t",p[i][j][k]);
+			}
+			printf("\n \n");
+		}
+		printf("\n");
+	}
+	printf("freeing the allocated memory for 3d array\n");
+	for (i = 0;i < first;i++)
+	{
+		for (j = 0;j < second;j++)
+		{
+			free(p[i][j]);
+		}
+		free(p[i]);
+	}
+	free(p);
+}
+
+int main()
+{
+ThreeDimentional();
+return 0;
+}
+
