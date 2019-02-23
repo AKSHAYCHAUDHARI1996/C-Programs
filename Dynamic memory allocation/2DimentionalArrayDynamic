@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void TwoDimentional()
+{
+	int **p=NULL;
+	int row,col,i,j;
+
+	printf("enter number of rows and columns\n");
+	scanf("%d %d", &row,&col);
+
+	p = (int**)malloc(sizeof(int)* row);
+
+	for (i = 0;i < row; i++)
+	{
+		p[i] = (int*)malloc(sizeof(int)*col);
+	}
+
+	printf("enter the elements in array \n");
+	for (i = 0;i < row;i++)
+	{
+		for (j = 0;j < col;j++)
+		{
+			scanf("%d", &p[i][j]);
+		}
+	}
+
+	printf("elements in 2D array are \n");
+	for (i = 0;i < row;i++)
+	{
+		for (j = 0;j < col;j++)
+		{
+			printf("%d \t", p[i][j]);
+		}
+		printf("\n");
+	}
+
+	printf("freeing the allocated memory for 2d array\n");
+	for (i = 0;i < row;i++)
+	{
+		free(p[i]);
+	}
+	free(p);
+}
+
+int main()
+{
+TwoDimentional();
+return 0;
+}
