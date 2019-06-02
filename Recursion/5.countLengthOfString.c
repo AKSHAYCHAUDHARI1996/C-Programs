@@ -1,3 +1,5 @@
+#include<stdio.h>
+
 int StrlenR(char *src)
 {
   static int iCnt = 0;
